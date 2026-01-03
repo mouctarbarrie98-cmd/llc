@@ -35,42 +35,38 @@ export default function Home() {
         <SchedulingAssistant />
       </div>
 
+      import ServiceCard from "@/components/ServiceCard";
+      import ProviderCard from "@/components/ProviderCard";
+
+      // ... existing imports
+
       {/* Meet the Doctors Section */}
       <section className={styles.doctors}>
         <div className="container">
           <h2 className={styles.sectionTitle}>Meet Our Providers</h2>
           <p className={styles.doctorsIntro}>Our practice consists of three highly experienced pulmonologists dedicated to your care.</p>
           <div className={styles.grid}>
-            {/* Doctor 1 */}
-            <div className={styles.card} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-              <div className={styles.doctorIcon}>👨‍⚕️</div>
-              <h3>Dr. James Wilson</h3>
-              <p className={styles.doctorRole}>Senior Pulmonologist</p>
-              <p style={{ flex: 1 }}>Specializing in COPD and Asthma management with over 20 years of experience.</p>
-              <div style={{ marginTop: '1.5rem' }}>
-                <Link href="/schedule" className="btn btn-outline" style={{ width: '100%', fontSize: '0.9rem' }}>Schedule Appointment</Link>
-              </div>
-            </div>
-            {/* Doctor 2 */}
-            <div className={styles.card} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-              <div className={styles.doctorIcon}>👨‍⚕️</div>
-              <h3>Dr. Sajjad Jameel</h3>
-              <p className={styles.doctorRole}>Pulmonologist & Internal Medicine</p>
-              <p style={{ flex: 1 }}>26 Years Experience. Specializing in Long COVID Disorder, Esophageal Varices, and general pulmonary care.</p>
-              <div style={{ marginTop: '1.5rem' }}>
-                <Link href="/schedule" className="btn btn-outline" style={{ width: '100%', fontSize: '0.9rem' }}>Schedule Appointment</Link>
-              </div>
-            </div>
-            {/* Doctor 3 */}
-            <div className={styles.card} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-              <div className={styles.doctorIcon}>👨‍⚕️</div>
-              <h3>Dr. Ehab Haj Ali</h3>
-              <p className={styles.doctorRole}>Pulmonologist & Internal Medicine</p>
-              <p style={{ flex: 1 }}>20 Years Experience. Expert in Sleep Apnea, Asthma Treatment, and Chronic Pulmonary Heart Diseases.</p>
-              <div style={{ marginTop: '1.5rem' }}>
-                <Link href="/schedule" className="btn btn-outline" style={{ width: '100%', fontSize: '0.9rem' }}>Schedule Appointment</Link>
-              </div>
-            </div>
+            <ProviderCard
+              name="Dr. James Wilson"
+              role="Senior Pulmonologist"
+              bio="Dr. Wilson has over 20 years of experience treating complex respiratory conditions. He specialized in COPD management and is dedicated to helping patients maintain an active lifestyle."
+              specialties="COPD and Asthma management"
+              education="U of L School of Medicine"
+            />
+            <ProviderCard
+              name="Dr. Sajjad Jameel"
+              role="Pulmonologist & Internal Medicine"
+              bio="Dr. Jameel has 26 years of experience in Internal Medicine and Pulmonology. He is dedicated to providing comprehensive pulmonary care to the Louisville community."
+              specialties="Long COVID, Esophageal Varices, General Pulmonary"
+              education="Allama Iqbal Medical College"
+            />
+            <ProviderCard
+              name="Dr. Ehab Haj Ali"
+              role="Pulmonologist & Internal Medicine"
+              bio="Dr. Haj Ali brings 20 years of experience. His areas of expertise include Sleep Apnea, Asthma treatment, and Ulcerative colitis."
+              specialties="Sleep Apnea, Asthma, Chronic Heart Diseases"
+              education="University of Aleppo"
+            />
           </div>
         </div>
       </section>
@@ -96,11 +92,7 @@ export default function Home() {
               { title: 'Sleep Apnea', desc: 'Diagnosis and treatment (CPAP/BiPAP) for sleep-disordered breathing.' },
               { title: 'Pulmonary Function Testing', desc: 'On-site PFTs to assess lung volume and capacity.' }
             ].map((service, i) => (
-              <div key={i} className={styles.serviceCard}>
-                <h3>{service.title}</h3>
-                <p>{service.desc}</p>
-                <Link href="/services" className={styles.serviceLink}>Learn More →</Link>
-              </div>
+              <ServiceCard key={i} title={service.title} desc={service.desc} />
             ))}
           </div>
         </div>
