@@ -103,34 +103,14 @@ export default function SchedulePage() {
                 </div>
 
                 <div style={{ marginBottom: '2rem' }}>
-                    <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Reason for Visit</label>
-                    <select
-                        name="visitType"
+                    <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Reason for Appointment</label>
+                    <textarea
+                        name="visitReason"
                         required
-                        value={formData.visitType}
-                        onChange={handleChange}
-                        style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '1rem' }}
-                    >
-                        <option value="">Select a visit type...</option>
-                        <option value="Routine Checkup">Routine Checkup / Follow-up</option>
-                        <option value="New Symptom">New Symptom (Non-Urgent)</option>
-                        <option value="Urgent Issue">Urgent Breathing Issue</option>
-                        <option value="PFT">Pulmonary Function Test (PFT)</option>
-                    </select>
-
-                    {/* Conditional: PFT Prep Note */}
-                    {formData.visitType === 'PFT' && (
-                        <div style={{ marginTop: '1rem', padding: '1rem', background: '#ebf8ff', borderRadius: 'var(--radius-md)', color: '#2c5282', fontSize: '0.95rem' }}>
-                            ℹ️ <strong>Note:</strong> Some breathing tests require preparation. Our team will contact you with specific instructions (e.g., withholding inhalers) 24 hours before your visit.
-                        </div>
-                    )}
-
-                    {/* Conditional: Urgent Guardrail */}
-                    {formData.visitType === 'Urgent Issue' && (
-                        <div style={{ marginTop: '1rem', padding: '1rem', background: '#fff5f5', borderRadius: 'var(--radius-md)', color: '#c53030', fontSize: '0.95rem' }}>
-                            🛑 <strong>Safety Check:</strong> If you are struggling to breathe right now, do not wait for us to call back. Please seek immediate care.
-                        </div>
-                    )}
+                        placeholder="Briefly describe the reason for your visit..."
+                        onChange={(e: any) => setFormData({ ...formData, visitType: e.target.value })}
+                        style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', minHeight: '100px' }}
+                    />
                 </div>
 
                 {/* Patient Details */}
@@ -175,26 +155,16 @@ export default function SchedulePage() {
                     </div>
                 </div>
 
-                {/* Preferred Times */}
+                {/* Best Time to Call */}
                 <div style={{ marginBottom: '2.5rem' }}>
-                    <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--color-secondary)' }}>Preferred Availability</h3>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-light)', marginBottom: '1rem' }}>
-                        Please select up to 3 preferred time blocks. We will do our best to accommodate your choices.
-                    </p>
-                    <div style={{ display: 'grid', gap: '1rem' }}>
-                        {['1st Choice', '2nd Choice', '3rd Choice'].map((choice, i) => (
-                            <div key={i}>
-                                <label style={{ fontSize: '0.9rem', fontWeight: 600, display: 'block', marginBottom: '0.25rem' }}>{choice}</label>
-                                <input
-                                    type="text"
-                                    name={`preferredTime${i + 1}`}
-                                    placeholder="e.g. Monday Morning, Tuesday after 2PM"
-                                    onChange={handleChange}
-                                    style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1' }}
-                                />
-                            </div>
-                        ))}
-                    </div>
+                    <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Best Time to Call</label>
+                    <input
+                        type="text"
+                        name="preferredTime1"
+                        placeholder="e.g. Morning, After 2pm, etc."
+                        onChange={handleChange}
+                        style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1' }}
+                    />
                 </div>
 
                 <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '2rem' }}>
@@ -206,7 +176,7 @@ export default function SchedulePage() {
                         Request Appointment
                     </button>
                     <p style={{ textAlign: 'center', marginTop: '1rem', fontSize: '0.9rem', color: 'var(--color-text-light)' }}>
-                        We will contact you within 1 business day to confirm.
+                        We will contact you to schedule your appointment.
                     </p>
                 </div>
             </form>

@@ -15,12 +15,12 @@ export default function SchedulingAssistant() {
                 How can we help you today?
             </h3>
 
-            <div className={styles.assistantGrid}>
-                <button onClick={() => handleSelection('New Patient')} className={styles.assistantBtn}>
-                    🆕 New Patient Visit
-                </button>
-                <button onClick={() => handleSelection('Follow-up')} className={styles.assistantBtn}>
-                    🔄 Follow-up
+            <div className={styles.assistantGrid} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', maxWidth: '600px', margin: '0 auto' }}>
+                <p style={{ fontSize: '1.1rem', color: 'var(--color-text)', textAlign: 'center', marginBottom: '1rem' }}>
+                    Submit a request online and our team will call you to schedule your appointment.
+                </p>
+                <button onClick={() => handleSelection('request')} className={styles.assistantBtn} style={{ maxWidth: '300px', background: 'var(--color-primary)', color: 'white', borderColor: 'var(--color-primary)' }}>
+                    📅 Request Appointment
                 </button>
             </div>
         </div>
