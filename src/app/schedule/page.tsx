@@ -1,8 +1,12 @@
 "use client";
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 export default function SchedulePage() {
+    const searchParams = useSearchParams();
+    const typeParam = searchParams.get('type');
+
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
         isEmergencyChecked: false,
@@ -14,6 +18,20 @@ export default function SchedulePage() {
         preferredTime2: '',
         preferredTime3: ''
     });
+
+    useEffect(() => {
+        if (typeParam) {
+            let mappedType = '';
+            if (typeParam === 'New Patient') mappedType = 'New Symptom';
+            else if (typeParam === 'Follow-up') mappedType = 'Routine Checkup';
+            else if (typeParam === 'PFT') mappedType = 'PFT';
+            else if (typeParam === 'Sleep') mappedType = 'Routine Checkup'; // Or specific sleep option
+
+            if (mappedType) {
+                setFormData(prev => ({ ...prev, visitType: mappedType }));
+            }
+        }
+    }, [typeParam]);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
