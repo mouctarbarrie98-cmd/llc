@@ -10,8 +10,15 @@ export default function Home() {
     <main className={styles.main}>
       {/* Hero Section */}
       <section className={styles.hero}>
-        <div className="container">
-          <h1 className={styles.heroTitle} style={{ marginBottom: '0.5rem' }}>Louisville Lung Care</h1>
+        <div className={styles.videoBackground}>
+          <video autoPlay loop muted playsInline className={styles.video}>
+            <source src="https://videos.pexels.com/video-files/7578552/7578552-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className={styles.overlay}></div>
+        </div>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <h1 className={styles.heroTitle} style={{ marginBottom: '0.5rem', textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>Louisville Lung Care</h1>
           <h2 style={{ fontSize: '1.25rem', fontWeight: 500, color: 'var(--color-text)', marginBottom: '2rem', maxWidth: '600px', marginInline: 'auto' }}>
             Pulmonary & Respiratory Specialists Serving Louisville, KY
           </h2>
