@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# llcky.com - Pulmonary Care Website & Patient Portal
+
+A modern, secure, and responsive website for a private pulmonology practice, built with Next.js 15, TypeScript, and Prisma.
+
+## Features
+
+### Public Website
+- **Home**: Scheduling options, team overview, and services.
+- **Services**: Detailed list of respiratory conditions and treatments.
+- **Providers**: Doctor bios and credentials.
+- **New Patients**: Information on what to bring and referral instructions.
+- **Contact**: Location, hours, and contact info.
+- **Scheduling**: 
+    - Online Schedule (Placeholder for Zocdoc/Phreesia)
+    - Request a Call form (saves to database)
+
+### Patient Portal (Internal)
+- **Secure Authentication**: Staff login required to access patient data.
+- **Patient Management**:
+    - View patient list in a clean table format.
+    - Add new patients.
+    - detailed patient view.
+    - Edit patient demographics and medical history.
+    - Delete patient records.
+
+## Tech Stack
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Database**: SQLite (Development) / PostgreSQL (Production ready)
+- **ORM**: Prisma
+- **Auth**: NextAuth.js
+- **Styling**: Vanilla CSS (CSS Modules) with a medical-grade design system.
 
 ## Getting Started
 
-First, run the development server:
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **Environment Setup**
+   Create a `.env` file in the root:
+   ```env
+   # Database connection string
+   DATABASE_URL="file:./dev.db"
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   # NextAuth Configuration
+   NEXTAUTH_URL="http://localhost:3000"
+   NEXTAUTH_SECRET="your-secure-random-secret-key"
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Database Setup**
+   Initialize the database:
+   ```bash
+   npx prisma migrate dev --name init
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
+   Visit `http://localhost:3000`.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+### Moving to Production
+1. **Database**: Switch from SQLite to PostgreSQL (e.g., Vercel Postgres, Neon, AWS RDS).
+   - Update `schema.prisma`:
+     ```prisma
+     datasource db {
+       provider = "postgresql"
+       url      = env("POSTGRES_PRISMA_URL")
+     }
+     ```
+   - Update `.env` with the new connection string.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Authentication**:
+   - Generate a strong `NEXTAUTH_SECRET` (e.g., `openssl rand -base64 32`).
+   - Update `NEXTAUTH_URL` to your production domain (e.g., `https://louisvillepulmonary.com`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Build**:
+   ```bash
+   npm run build
+   ```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Default Credentials (Demo)
+- **Username**: admin
+- **Password**: password123
+*Note: In production, switch to a database-backed user system.*

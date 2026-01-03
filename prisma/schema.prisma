@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Patient {
+  id            Int      @id @default(autoincrement())
+  firstName     String
+  lastName      String
+  dateOfBirth   DateTime
+  email         String?
+  phone         String?
+  medicalHistory String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  visits        Visit[]
+  prescriptions Prescription[]
+}
+
+model Prescription {
+  id        Int      @id @default(autoincrement())
+  medication String
+  dosage    String
+  frequency String
+  status    String   @default("Active") // Active, Discontinued
+  datePrescribed DateTime @default(now())
+  patient   Patient  @relation(fields: [patientId], references: [id])
+  patientId Int
+}
+
+model Visit {
+  id        Int      @id @default(autoincrement())
+  date      DateTime @default(now())
+  notes     String
+  patient   Patient  @relation(fields: [patientId], references: [id])
+  patientId Int
+}
+
+model CallRequest {
+  id              Int      @id @default(autoincrement())
+  fullName        String
+  dateOfBirth     DateTime
+  phone           String
+  reason          String
+  referringDoctor String?
+  preferredTime   String?
+  notes           String?
+  status          String   @default("PENDING") // PENDING, CALLED, SCHEDULED
+  createdAt       DateTime @default(now())
+}
