@@ -1,4 +1,3 @@
-```javascript
 "use client";
 import Link from 'next/link';
 import { useState } from 'react';
@@ -70,13 +69,13 @@ export default function SchedulePage() {
             </div>
 
             <form onSubmit={handleSubmit} style={{ background: 'var(--color-surface)', padding: '2rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)' }}>
-                
+
                 {/* Step 1: Guardrails & Type */}
                 <div style={{ marginBottom: '2rem' }}>
                     <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer', padding: '1rem', background: '#f8fafc', borderRadius: 'var(--radius-md)' }}>
-                        <input 
-                            type="checkbox" 
-                            required 
+                        <input
+                            type="checkbox"
+                            required
                             checked={formData.isEmergencyChecked}
                             onChange={handleCheck}
                             style={{ marginTop: '0.3rem', width: '20px', height: '20px' }}
@@ -87,10 +86,10 @@ export default function SchedulePage() {
 
                 <div style={{ marginBottom: '2rem' }}>
                     <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Reason for Visit</label>
-                    <select 
-                        name="visitType" 
-                        required 
-                        value={formData.visitType} 
+                    <select
+                        name="visitType"
+                        required
+                        value={formData.visitType}
                         onChange={handleChange}
                         style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '1rem' }}
                     >
@@ -123,8 +122,8 @@ export default function SchedulePage() {
                     </div>
                     <div style={{ gridColumn: '1 / -1' }}>
                         <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Full Name</label>
-                        <input 
-                            type="text" 
+                        <input
+                            type="text"
                             name="patientName"
                             required
                             placeholder="Jane Doe"
@@ -135,8 +134,8 @@ export default function SchedulePage() {
                     </div>
                     <div style={{ minWidth: '0' }}>
                         <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Phone Number</label>
-                        <input 
-                            type="tel" 
+                        <input
+                            type="tel"
                             name="phone"
                             required
                             placeholder="(502) 555-0123"
@@ -147,8 +146,8 @@ export default function SchedulePage() {
                     </div>
                     <div style={{ minWidth: '0' }}>
                         <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Email (Optional)</label>
-                        <input 
-                            type="email" 
+                        <input
+                            type="email"
                             name="email"
                             placeholder="jane@example.com"
                             value={formData.email}
@@ -168,9 +167,9 @@ export default function SchedulePage() {
                         {['1st Choice', '2nd Choice', '3rd Choice'].map((choice, i) => (
                             <div key={i}>
                                 <label style={{ fontSize: '0.9rem', fontWeight: 600, display: 'block', marginBottom: '0.25rem' }}>{choice}</label>
-                                <input 
-                                    type="text" 
-                                    name={`preferredTime${ i + 1 } `}
+                                <input
+                                    type="text"
+                                    name={`preferredTime${i + 1}`}
                                     placeholder="e.g. Monday Morning, Tuesday after 2PM"
                                     onChange={handleChange}
                                     style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1' }}
@@ -181,8 +180,8 @@ export default function SchedulePage() {
                 </div>
 
                 <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '2rem' }}>
-                    <button 
-                        type="submit" 
+                    <button
+                        type="submit"
                         className="btn btn-primary"
                         style={{ width: '100%', padding: '1rem', fontSize: '1.1rem' }}
                     >
