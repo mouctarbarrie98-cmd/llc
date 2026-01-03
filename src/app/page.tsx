@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 
+import SchedulingAssistant from "@/components/SchedulingAssistant";
+import InsuranceFAQ from "@/components/InsuranceFAQ";
+
 export default function Home() {
   return (
     <main className={styles.main}>
@@ -20,12 +23,17 @@ export default function Home() {
             </a>
 
             {/* Secondary CTA */}
-            <Link href="/schedule" className="btn btn-outline">
+            <Link href="/schedule" className={`btn btn-outline ${styles.pulseButton}`}>
               Schedule Appointment
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Guided Assistant - Negative margin pulls it up into Hero visual space */}
+      <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+        <SchedulingAssistant />
+      </div>
 
       {/* Meet the Doctors Section */}
       <section className={styles.doctors}>
@@ -67,35 +75,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Patient Resources / FAQ */}
+      <section style={{ padding: '6rem 0', background: 'var(--color-surface)' }}>
+        <div className="container">
+          <h2 className={styles.sectionTitle}>Patient Resources & FAQ</h2>
+          <InsuranceFAQ />
+        </div>
+      </section>
+
       {/* Services Overview */}
       <section className={styles.features}>
         <div className="container">
           <h2 className={styles.sectionTitle}>Services Overview</h2>
           <div className={styles.grid}>
-            <div className={styles.card}>
-              <h3>Asthma</h3>
-              <p>Comprehensive management and action plans for asthma control.</p>
-            </div>
-            <div className={styles.card}>
-              <h3>COPD</h3>
-              <p>Long-term care and symptom management for Chronic Obstructive Pulmonary Disease.</p>
-            </div>
-            <div className={styles.card}>
-              <h3>Lung Nodules</h3>
-              <p>Evaluation, monitoring, and management of pulmonary nodules.</p>
-            </div>
-            <div className={styles.card}>
-              <h3>Chronic Cough</h3>
-              <p>Diagnostic evaluation and treatment for persistent coughs.</p>
-            </div>
-            <div className={styles.card}>
-              <h3>Sleep Apnea</h3>
-              <p>Diagnosis and treatment (CPAP/BiPAP) for sleep-disordered breathing.</p>
-            </div>
-            <div className={styles.card}>
-              <h3>Pulmonary Function Testing</h3>
-              <p>On-site PFTs to assess lung volume and capacity.</p>
-            </div>
+            {[
+              { title: 'Asthma', desc: 'Comprehensive management and action plans for asthma control.' },
+              { title: 'COPD', desc: 'Long-term care and symptom management for COPD.' },
+              { title: 'Lung Nodules', desc: 'Evaluation, monitoring, and management of pulmonary nodules.' },
+              { title: 'Chronic Cough', desc: 'Diagnostic evaluation and treatment for persistent coughs.' },
+              { title: 'Sleep Apnea', desc: 'Diagnosis and treatment (CPAP/BiPAP) for sleep-disordered breathing.' },
+              { title: 'Pulmonary Function Testing', desc: 'On-site PFTs to assess lung volume and capacity.' }
+            ].map((service, i) => (
+              <div key={i} className={styles.serviceCard}>
+                <h3>{service.title}</h3>
+                <p>{service.desc}</p>
+                <Link href="/services" className={styles.serviceLink}>Learn More →</Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>

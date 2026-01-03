@@ -28,12 +28,30 @@ export default function ContactPage() {
                     </ul>
                 </div>
 
-                {/* Map Placeholder */}
-                <div style={{ height: '400px', background: '#e2e8f0', borderRadius: 'var(--radius-lg)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div style={{ textAlign: 'center', color: 'var(--color-text-light)' }}>
-                        <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🗺️</div>
-                        <p>Interactive Map would go here</p>
-                        <p>(Google Maps Embed)</p>
+                {/* Map Section */}
+                <div style={{ height: '400px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', position: 'relative' }}>
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=1015%20Dupont%20Rd%2C%20Louisville%2C%20KY%2040207&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        frameBorder="0"
+                        scrolling="no"
+                        marginHeight={0}
+                        marginWidth={0}
+                        style={{ border: 0 }}
+                        title="Google Map Location"
+                    ></iframe>
+                    <div style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
+                        <a
+                            href="https://www.google.com/maps/dir//1015+Dupont+Rd,+Louisville,+KY+40207"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-primary"
+                            style={{ boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}
+                        >
+                            📍 Get Directions
+                        </a>
                     </div>
                 </div>
 

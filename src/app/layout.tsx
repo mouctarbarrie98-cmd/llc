@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuthProvider from "@/components/AuthProvider";
+import MobileActionBar from "@/components/MobileActionBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,10 +29,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        import MobileActionBar from "@/components/MobileActionBar";
+        // ... imports
+
         <AuthProvider>
           <Navbar />
           {children}
           <Footer />
+          <MobileActionBar />
         </AuthProvider>
       </body>
     </html>
