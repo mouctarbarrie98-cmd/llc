@@ -62,7 +62,12 @@ export default function SchedulePage() {
                     </p>
                     <div style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: 'var(--radius-md)', marginBottom: '2rem', textAlign: 'left' }}>
                         <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--color-secondary)' }}>What happens next?</h3>
-                        <p style={{ color: 'var(--color-text-light)' }}>Our scheduling team will review your request and call you within <strong>1 business day</strong> to confirm your appointment time.</p>
+                        <p style={{ color: 'var(--color-text-light)', marginBottom: '0.5rem' }}>
+                            A confirmation text has been sent to <strong>{formData.phone}</strong>.
+                        </p>
+                        <p style={{ color: 'var(--color-text-light)' }}>
+                            Our scheduling team will review your request and call you within <strong>1 business day</strong> to confirm your appointment time.
+                        </p>
                     </div>
                     <p style={{ fontSize: '0.9rem', color: '#e53e3e', fontWeight: 600 }}>
                         If your condition worsens or you experience a medical emergency, please call 911 immediately.
