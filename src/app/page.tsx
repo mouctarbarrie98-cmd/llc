@@ -9,30 +9,21 @@ export default function Home() {
       <section className={styles.hero}>
         <div className="container">
           <h1 className={styles.heroTitle} style={{ marginBottom: '0.5rem' }}>Louisville Lung Care</h1>
-          <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', color: 'var(--color-text)' }}>Schedule an Appointment</h2>
-          <p className={styles.heroSubtitle}>We offer two ways to book your appointment — choose what works best for you:</p>
+          <h2 style={{ fontSize: '1.25rem', fontWeight: 500, color: 'var(--color-text)', marginBottom: '2rem', maxWidth: '600px', marginInline: 'auto' }}>
+            Pulmonary & Respiratory Specialists Serving Louisville, KY
+          </h2>
 
           <div className={styles.schedulingOptions}>
-            {/* Option 1 */}
-            <div className={styles.optionCard}>
-              <div className={styles.optionIcon}>1️⃣</div>
-              <h3>Schedule Online</h3>
-              <p>Book available times instantly using our secure portal.</p>
-              <Link href="/schedule" className="btn btn-primary">Book Online Now</Link>
-            </div>
+            {/* Primary CTA */}
+            <a href="tel:5028830227" className="btn btn-primary" style={{ fontSize: '1rem', padding: '0.75rem 1.5rem' }}>
+              📞 Call Now (502-883-0227)
+            </a>
 
-            {/* Option 2 */}
-            <div className={styles.optionCard}>
-              <div className={styles.optionIcon}>2️⃣</div>
-              <h3>Request a Scheduling Call</h3>
-              <p>Our team will call you within 1–2 business days to coordinate.</p>
-              <Link href="/request-call" className="btn btn-outline">Request a Call</Link>
-            </div>
+            {/* Secondary CTA */}
+            <Link href="/schedule" className="btn btn-outline">
+              Schedule Appointment
+            </Link>
           </div>
-
-          <p className={styles.heroNote}>
-            <strong>Not sure which option to choose?</strong> If your referral is complex, we recommend requesting a call so we can match you with the right provider.
-          </p>
         </div>
       </section>
 
@@ -43,46 +34,67 @@ export default function Home() {
           <p className={styles.doctorsIntro}>Our practice consists of three highly experienced pulmonologists dedicated to your care.</p>
           <div className={styles.grid}>
             {/* Doctor 1 */}
-            <div className={styles.card}>
+            <div className={styles.card} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
               <div className={styles.doctorIcon}>👨‍⚕️</div>
               <h3>Dr. James Wilson</h3>
               <p className={styles.doctorRole}>Senior Pulmonologist</p>
-              <p>Specializing in COPD and Asthma management with over 20 years of experience.</p>
+              <p style={{ flex: 1 }}>Specializing in COPD and Asthma management with over 20 years of experience.</p>
+              <div style={{ marginTop: '1.5rem' }}>
+                <Link href="/schedule" className="btn btn-outline" style={{ width: '100%', fontSize: '0.9rem' }}>Schedule Appointment</Link>
+              </div>
             </div>
             {/* Doctor 2 */}
-            <div className={styles.card}>
+            <div className={styles.card} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
               <div className={styles.doctorIcon}>👨‍⚕️</div>
               <h3>Dr. Sajjad Jameel</h3>
               <p className={styles.doctorRole}>Pulmonologist & Internal Medicine</p>
-              <p>26 Years Experience. Specializing in Long COVID Disorder, Esophageal Varices, and general pulmonary care.</p>
+              <p style={{ flex: 1 }}>26 Years Experience. Specializing in Long COVID Disorder, Esophageal Varices, and general pulmonary care.</p>
+              <div style={{ marginTop: '1.5rem' }}>
+                <Link href="/schedule" className="btn btn-outline" style={{ width: '100%', fontSize: '0.9rem' }}>Schedule Appointment</Link>
+              </div>
             </div>
             {/* Doctor 3 */}
-            <div className={styles.card}>
+            <div className={styles.card} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
               <div className={styles.doctorIcon}>👨‍⚕️</div>
               <h3>Dr. Ehab Haj Ali</h3>
               <p className={styles.doctorRole}>Pulmonologist & Internal Medicine</p>
-              <p>20 Years Experience. Expert in Sleep Apnea, Asthma Treatment, and Chronic Pulmonary Heart Diseases.</p>
+              <p style={{ flex: 1 }}>20 Years Experience. Expert in Sleep Apnea, Asthma Treatment, and Chronic Pulmonary Heart Diseases.</p>
+              <div style={{ marginTop: '1.5rem' }}>
+                <Link href="/schedule" className="btn btn-outline" style={{ width: '100%', fontSize: '0.9rem' }}>Schedule Appointment</Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Info Section */}
+      {/* Services Overview */}
       <section className={styles.features}>
         <div className="container">
-          <h2 className={styles.sectionTitle}>Why Choose Louisville Lung Care?</h2>
+          <h2 className={styles.sectionTitle}>Services Overview</h2>
           <div className={styles.grid}>
             <div className={styles.card}>
-              <h3>Comprehensive Care</h3>
-              <p>From asthma to sleep apnea, we treat a wide range of respiratory conditions with expertise.</p>
+              <h3>Asthma</h3>
+              <p>Comprehensive management and action plans for asthma control.</p>
             </div>
             <div className={styles.card}>
-              <h3>Patient-Centered</h3>
-              <p>We listen to your concerns and tailor treatment plans to your unique lifestyle and needs.</p>
+              <h3>COPD</h3>
+              <p>Long-term care and symptom management for Chronic Obstructive Pulmonary Disease.</p>
             </div>
             <div className={styles.card}>
-              <h3>Advanced Technology</h3>
-              <p>Utilizing the latest diagnostic tools to ensure accurate assessments and effective treatments.</p>
+              <h3>Lung Nodules</h3>
+              <p>Evaluation, monitoring, and management of pulmonary nodules.</p>
+            </div>
+            <div className={styles.card}>
+              <h3>Chronic Cough</h3>
+              <p>Diagnostic evaluation and treatment for persistent coughs.</p>
+            </div>
+            <div className={styles.card}>
+              <h3>Sleep Apnea</h3>
+              <p>Diagnosis and treatment (CPAP/BiPAP) for sleep-disordered breathing.</p>
+            </div>
+            <div className={styles.card}>
+              <h3>Pulmonary Function Testing</h3>
+              <p>On-site PFTs to assess lung volume and capacity.</p>
             </div>
           </div>
         </div>

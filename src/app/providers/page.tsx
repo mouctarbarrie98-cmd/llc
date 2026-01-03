@@ -36,10 +36,13 @@ export default function ProvidersPage() {
                             <h2 style={{ color: 'var(--color-primary)', marginBottom: '0.25rem' }}>{doc.name}</h2>
                             <p style={{ fontWeight: 600, color: 'var(--color-secondary)', marginBottom: '1rem' }}>{doc.role}</p>
                             <p style={{ marginBottom: '1rem', lineHeight: 1.6 }}>{doc.bio}</p>
-                            <div style={{ fontSize: '0.9rem', color: 'var(--color-text-light)', whiteSpace: 'pre-line' }}>
+                            <div style={{ fontSize: '0.9rem', color: 'var(--color-text-light)', whiteSpace: 'pre-line', marginBottom: '1.5rem' }}>
                                 <strong>Education:</strong><br />
                                 {doc.education}
                             </div>
+                            <Link href="/schedule" className="btn btn-outline" style={{ fontSize: '0.9rem', padding: '0.5rem 1rem' }}>
+                                Schedule with {doc.name.split(' ').slice(0, 2).join(' ')}
+                            </Link>
                         </div>
                     </div>
                 ))}
