@@ -1,5 +1,6 @@
 .hero {
-  padding: 8rem 0 6rem;
+  padding: 12rem 0 8rem;
+  /* Increased top padding to push text down */
   background-color: var(--color-surface);
   /* Fallback */
   text-align: center;

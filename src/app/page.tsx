@@ -12,7 +12,7 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.videoBackground}>
           <video autoPlay loop muted playsInline className={styles.video}>
-            <source src="https://videos.pexels.com/video-files/7578552/7578552-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+            <source src="https://videos.pexels.com/video-files/3191572/3191572-uhd_2560_1440_25fps.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className={styles.overlay}></div>
