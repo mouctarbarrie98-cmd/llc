@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
-
-import SchedulingAssistant from "@/components/SchedulingAssistant";
 import InsuranceFAQ from "@/components/InsuranceFAQ";
 import ServiceCard from "@/components/ServiceCard";
 import ProviderCard from "@/components/ProviderCard";
@@ -31,13 +29,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Guided Assistant - Negative margin pulls it up into Hero visual space */}
-      <div className="container" style={{ position: 'relative', zIndex: 10 }}>
-        <SchedulingAssistant />
-      </div>
-
-
 
       {/* Meet the Doctors Section */}
       <section className={styles.doctors}>
