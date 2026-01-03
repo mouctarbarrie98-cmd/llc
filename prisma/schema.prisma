@@ -43,12 +43,16 @@ model Visit {
 model CallRequest {
   id              Int      @id @default(autoincrement())
   fullName        String
-  dateOfBirth     DateTime
   phone           String
+  email           String?
   reason          String
-  referringDoctor String?
   preferredTime   String?
-  notes           String?
+  isEmergency     Boolean  @default(false)
   status          String   @default("PENDING") // PENDING, CALLED, SCHEDULED
   createdAt       DateTime @default(now())
+  
+  // Deprecated / Optional for backward compatibility if needed, but we can make them optional
+  dateOfBirth     DateTime?
+  referringDoctor String?
+  notes           String?
 }

@@ -44,11 +44,24 @@ export default function SchedulePage() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Simulate API call
-        setTimeout(() => {
-            setIsSubmitted(true);
-            window.scrollTo(0, 0);
-        }, 800);
+
+        try {
+            const response = await fetch('/api/schedule', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                setIsSubmitted(true);
+                window.scrollTo(0, 0);
+            } else {
+                alert('There was a problem submitting your request. Please try again.');
+            }
+        } catch (error) {
+            console.error('Submission error:', error);
+            alert('An error occurred. Please try again later.');
+        }
     };
 
     if (isSubmitted) {
