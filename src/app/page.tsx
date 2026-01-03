@@ -4,6 +4,8 @@ import styles from "./page.module.css";
 
 import SchedulingAssistant from "@/components/SchedulingAssistant";
 import InsuranceFAQ from "@/components/InsuranceFAQ";
+import ServiceCard from "@/components/ServiceCard";
+import ProviderCard from "@/components/ProviderCard";
 
 export default function Home() {
   return (
@@ -35,10 +37,7 @@ export default function Home() {
         <SchedulingAssistant />
       </div>
 
-      import ServiceCard from "@/components/ServiceCard";
-      import ProviderCard from "@/components/ProviderCard";
 
-      // ... existing imports
 
       {/* Meet the Doctors Section */}
       <section className={styles.doctors}>
