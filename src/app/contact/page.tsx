@@ -22,7 +22,7 @@ export default function ContactPage() {
 
                     <h3 style={{ marginTop: '2.5rem', marginBottom: '1rem' }}>Hours of Operation</h3>
                     <ul style={{ listStyle: 'none', lineHeight: 1.8 }}>
-                        <li><strong>Monday - Friday:</strong> 8:00 AM - 5:00 PM</li>
+                        <li><strong>Monday - Friday:</strong> 8:30 AM - 4:30 PM</li>
                         <li><strong>Saturday:</strong> 9:00 AM - 12:00 PM (Urgent Care Only)</li>
                         <li><strong>Sunday:</strong> Closed</li>
                     </ul>

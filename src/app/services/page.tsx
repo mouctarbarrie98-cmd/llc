@@ -6,7 +6,7 @@ export default function ServicesPage() {
         },
         {
             title: "Sleep Medicine",
-            items: ["Obstructive Sleep Apnea", "Insomnia", "Narcolepsy", "Restless Leg Syndrome"]
+            items: ["Obstructive Sleep Apnea", "Insomnia"]
         },
         {
             title: "Advanced Diagnostics",

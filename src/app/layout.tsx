@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "llcky.com",
-  description: "Expert respiratory care in Louisville. Dedicated to your lung health.",
+  title: "Louisville Lung Care",
+  description: "Louisville Lung Care, PLLC — Pulmonary & Sleep Medicine in Louisville, KY",
 };
 
 export default function RootLayout({

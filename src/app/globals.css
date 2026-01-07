@@ -4,26 +4,31 @@
 
 :root {
   /* Brand Colors */
-  --color-primary: #0ea5e9;
-  /* Sky 500 */
-  --color-primary-dark: #0284c7;
-  /* Sky 600 */
-  --color-secondary: #0f172a;
-  /* Slate 900 */
-  --color-accent: #38bdf8;
-  /* Sky 400 */
+  /* New Trustworthy Medical Palette */
+  --color-primary: #0284C7;
+  /* Vivid Sky Blue - Trust & Calm */
+  --color-primary-dark: #0369A1;
+  /* Deep Sky Blue - Interaction State */
+  --color-accent: #E0F2FE;
+  /* Very Light Sky Blue - Backgrounds/Highlights */
 
-  /* Semantic Colors */
-  --color-background: #f8fafc;
-  /* Slate 50 */
-  --color-surface: #ffffff;
-  --color-text: #334155;
-  /* Slate 700 */
-  --color-text-light: #64748b;
-  /* Slate 500 */
-  --color-border: #e2e8f0;
-  /* Slate 200 */
-  --color-error: #ef4444;
+  --color-secondary: #334155;
+  /* Slate 700 - Professional Dark Gray (Headings) */
+
+  --color-background: #F8FAFC;
+  /* Very soft gray background */
+  --color-surface: #FFFFFF;
+  /* Pure white surface */
+
+  --color-text: #1E293B;
+  /* Slate 800 - High legibility text */
+  --color-text-light: #475569;
+  /* Slate 600 - Readable secondary text */
+
+  --color-border: #CBD5E1;
+  /* Slate 300 - Distinct borders */
+  --color-error: #DC2626;
+  /* Red 600 - Clear error state */
 
   /* Spacing */
   --spacing-xs: 0.5rem;

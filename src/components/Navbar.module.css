@@ -1,51 +1,191 @@
+/* Main Navbar Styles */
 .navbar {
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    background-color: #64748b;
+    /* Darker light grey (Slate 500) */
     border-bottom: 1px solid var(--color-border);
     position: sticky;
     top: 0;
-    z-index: 100;
-    padding: var(--spacing-sm) 0;
+    z-index: 1000;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .inner {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    height: 80px;
 }
 
 .logo {
     font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--color-primary);
+    font-weight: 700;
+    color: #ffffff;
+    /* White text on grey */
+    text-decoration: none;
+    line-height: 1.2;
 }
 
 .links {
     display: flex;
-    gap: var(--spacing-md);
+    gap: 2rem;
     align-items: center;
 }
 
 .link {
-    color: var(--color-text);
+    text-decoration: none;
+    color: #ffffff;
+    /* White text on grey */
     font-weight: 500;
-    transition: color var(--transition-fast);
+    transition: color 0.2s;
 }
 
 .link:hover {
+    color: #e2e8f0;
+    /* Light grey hover */
+}
+
+.callCta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-secondary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.callCta:hover {
     color: var(--color-primary);
 }
 
-/* Mobile responsiveness fixes */
-@media (max-width: 768px) {
-    .inner {
-        flex-direction: column;
-        gap: 1rem;
+/* Mobile Menu Toggle */
+.mobileToggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1002;
+    margin-right: 1rem;
+}
+
+.hamburger,
+.hamburgerOpen {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #ffffff;
+    /* White lines for contrast */
+    position: relative;
+    transition: all 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: #ffffff;
+    /* White lines */
+    transition: all 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger::before {
+    transform: translateY(-9px);
+}
+
+.hamburger::after {
+    transform: translateY(9px);
+}
+
+.hamburgerOpen {
+    background-color: transparent;
+}
+
+.hamburgerOpen::before {
+    transform: rotate(45deg);
+}
+
+.hamburgerOpen::after {
+    transform: rotate(-45deg);
+}
+
+/* Mobile Menu Dropdown */
+.mobileMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    /* White background for menu */
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: none;
+    border-bottom: 2px solid #64748b;
+    z-index: 1001;
+}
+
+.mobileMenuOpen {
+    display: flex;
+    animation: slideDown 0.3s ease-out forwards;
+}
+
+.mobileLink {
+    padding: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    /* Dark text on white menu */
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-align: center;
+    display: block;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
     }
 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 900px) {
     .links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
+        display: none;
+        /* Hide desktop links */
+    }
+
+    .mobileToggle {
+        display: flex;
+        /* Show toggle */
+    }
+
+    .inner {
+        padding: 0.5rem 0;
+        flex-direction: row;
+        /* Row for toggle+logo */
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+        margin-bottom: 0;
     }
 }

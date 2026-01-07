@@ -4,22 +4,22 @@ import Link from 'next/link';
 export default function ProvidersPage() {
     const doctors = [
         {
-            name: "Dr. James Wilson",
-            role: "Senior Pulmonologist",
-            bio: "Dr. Wilson has over 20 years of experience treating complex respiratory conditions. He specialized in COPD management and is dedicated to helping patients maintain an active lifestyle.",
-            education: "Medical School: University of Louisville\nResidency: Johns Hopkins Hospital"
+            name: "Dr. Moutaz Al Nabhan",
+            role: "Pulmonologist",
+            bio: "Dr. Moutaz Al Nabhan is a pulmonologist in Louisville, Kentucky and is affiliated with Kindred Hospital-Louisville. He received his medical degree from University of Aleppo Faculty of Medicine and has been in practice for more than 20 years. He has expertise in treating sleep issues, pneumonia, asthma, among other conditions.",
+            education: "Medical School: University of Aleppo Faculty of Medicine"
         },
         {
             name: "Dr. Sajjad Jameel",
             role: "Pulmonologist & Internal Medicine",
-            bio: "Dr. Jameel has 26 years of experience in Internal Medicine and Pulmonology. He specializes in treating complex conditions including Long COVID Disorder, Esophageal Varices, Necrotizing fasciitis, and Hiatal Hernia. He is dedicated to providing comprehensive pulmonary care to the Louisville community.",
-            education: "Medical School: Allama Iqbal Medical College (2000)\nFatima Jinnah Medical College for Women (2000)"
+            bio: "Dr. Jameel is a specialist in Pulmonary Disease, Critical Care Medicine, and Sleep Medicine based in Louisville, Kentucky. He has over 25 years of experience in the medical field. He is fluent in English, Hindi, Punjabi, Spanish, and Urdu.",
+            education: "Medical School: University of The Punjab / Fatima Jinnah Medical College for Women (2000)"
         },
         {
             name: "Dr. Ehab Haj Ali",
-            role: "Pulmonologist & Internal Medicine",
-            bio: "Dr. Haj Ali brings 20 years of experience in Internal Medicine and Pulmonology. His areas of expertise include Sleep Apnea, Asthma treatment, Chronic Pulmonary Heart Diseases (including Pulmonary Hypertension), and Ulcerative colitis. He is committed to advanced respiratory care.",
-            education: "Medical School: University of Aleppo Faculty of Medicine (2006)"
+            role: "Pulmonologist, Internal Medicine & Critical Care",
+            bio: "Dr. Haj Ali is an internal medicine, pulmonary medicine, and critical care specialist with over 15 years of experience. He treats complex lung issues including pneumonia, lung metastases, COPD, asthma, COVID-19, and pulmonary fibrosis. He performs procedures such as bronchoscopy, endoscopy, and gastrostomy. He is affiliated with Norton Hospital, UofL Health – Jewish Hospital, and Mary & Elizabeth Hospital.",
+            education: "Medical School: University of Aleppo School of Medicine (2006)\nFellowship: University of Louisville (Pulmonary & Critical Care, 2015)"
         }
     ];
 
@@ -42,7 +42,7 @@ export default function ProvidersPage() {
                                 {doc.education}
                             </div>
                             <Link href="/schedule" className="btn btn-outline" style={{ fontSize: '0.9rem', padding: '0.5rem 1rem' }}>
-                                Schedule with {doc.name.split(' ').slice(0, 2).join(' ')}
+                                Request Appointment
                             </Link>
                         </div>
                     </div>

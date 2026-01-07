@@ -7,6 +7,7 @@ export default withAuth({
 });
 
 export const config = {
-    // Protect patient records, portal, and admin API
-    matcher: ["/patients/:path*", "/portal/:path*", "/api/admin/:path*"],
+    // Protect patient records, portal requests, and admin API
+    // Exclude /portal root so patients can see the dashboard
+    matcher: ["/patients/:path*", "/portal/requests/:path*", "/api/admin/:path*"],
 };

@@ -7,7 +7,7 @@ export default function InsurancePage() {
                 <h2 style={{ marginBottom: '1.5rem' }}>Accepted Insurance Plans</h2>
                 <p style={{ marginBottom: '2rem' }}>We participate with most major insurance carriers, including but not limited to:</p>
                 <ul style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', listStyle: 'none' }}>
-                    {['Medicare', 'Blue Cross Blue Shield', 'Humana', 'Aetna', 'UnitedHealthcare', 'Cigna', 'Tricare', 'Medicaid (Select Plans)'].map(item => (
+                    {['Medicare', 'Blue Cross Blue Shield', 'Humana', 'UnitedHealthcare'].map(item => (
                         <li key={item} style={{ background: 'var(--color-surface)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>✅ {item}</li>
                     ))}
                 </ul>

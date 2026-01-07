@@ -55,14 +55,14 @@ export default function ProviderCard({ name, role, bio, education, specialties }
                         onClick={(e) => e.stopPropagation()}
                         style={{ width: '100%', fontSize: '0.9rem', justifyContent: 'center' }}
                     >
-                        Schedule Appointment
+                        Request an Appointment
                     </Link>
                 ) : (
                     <button
                         className="btn btn-outline"
                         style={{ width: '100%', fontSize: '0.9rem' }}
                     >
-                        View Profile & Schedule
+                        View Profile & Request
                     </button>
                 )}
             </div>

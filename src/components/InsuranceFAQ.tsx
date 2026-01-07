@@ -19,7 +19,7 @@ export default function InsuranceFAQ() {
         },
         {
             q: "What should I bring to my first visit?",
-            a: "Please bring your photo ID, insurance card, a list of current medications, and any recent chest X-rays or CT scans on a disc if available."
+            a: "Please bring your photo ID, insurance card, a list of current medications, and any recent chest X-rays or CT scans."
         }
     ];
 

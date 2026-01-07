@@ -28,25 +28,11 @@ export default function ServiceCard({ title, desc }: ServiceCardProps) {
 
             {isExpanded ? (
                 <div style={{ marginTop: '1.5rem', borderTop: '1px solid var(--color-border)', paddingTop: '1rem', animation: 'fadeIn 0.3s' }}>
-                    <p style={{ fontSize: '0.95rem', marginBottom: '1rem', color: 'var(--color-text)' }}>
+                    <p style={{ fontSize: '0.95rem', marginBottom: '0.5rem', color: 'var(--color-text)' }}>
                         <strong>Why choose us?</strong> Our pulmonary team specializes in {title} with advanced diagnostics and personalized treatment plans.
                     </p>
-                    <Link
-                        href={`/schedule?type=${encodeURIComponent(title)}`}
-                        className="btn btn-primary"
-                        onClick={(e) => e.stopPropagation()}
-                        style={{ width: '100%', fontSize: '0.9rem', justifyContent: 'center' }}
-                    >
-                        Schedule for {title}
-                    </Link>
                 </div>
-            ) : (
-                <div style={{ marginTop: '1rem' }}>
-                    <span className={styles.serviceLink} style={{ display: 'inline-block' }}>
-                        Base Details & Schedule &rarr;
-                    </span>
-                </div>
-            )}
+            ) : null}
         </div>
     );
 }

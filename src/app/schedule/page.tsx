@@ -11,6 +11,7 @@ export default function SchedulePage() {
     const [formData, setFormData] = useState({
         isEmergencyChecked: false,
         visitType: '',
+        provider: '',
         patientName: '',
         phone: '',
         email: '',
@@ -107,6 +108,7 @@ export default function SchedulePage() {
             <form onSubmit={handleSubmit} style={{ background: 'var(--color-surface)', padding: '2rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)' }}>
 
                 {/* Step 1: Guardrails & Type */}
+                {/* Step 1: Guardrails & Type */}
                 <div style={{ marginBottom: '2rem' }}>
                     <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer', padding: '1rem', background: '#f8fafc', borderRadius: 'var(--radius-md)' }}>
                         <input
@@ -120,23 +122,27 @@ export default function SchedulePage() {
                     </label>
                 </div>
 
+                {/* Provider Selection */}
                 <div style={{ marginBottom: '2rem' }}>
-                    <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Reason for Appointment</label>
-                    <textarea
-                        name="visitReason"
-                        required
-                        placeholder="Briefly describe the reason for your visit..."
-                        onChange={(e: any) => setFormData({ ...formData, visitType: e.target.value })}
-                        style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', minHeight: '100px' }}
-                    />
+                    <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Select Provider (Optional)</label>
+                    <select
+                        name="provider"
+                        value={formData.provider}
+                        onChange={handleChange}
+                        style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', background: 'white' }}
+                    >
+                        <option value="">No Preference / Any Available Provider</option>
+                        <option value="Dr. Moutaz Al Nabhan">Dr. Moutaz Al Nabhan</option>
+                        <option value="Dr. Sajjad Jameel">Dr. Sajjad Jameel</option>
+                        <option value="Dr. Ehab Haj Ali">Dr. Ehab Haj Ali</option>
+                    </select>
                 </div>
 
                 {/* Patient Details */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '2rem' }}>
-                    <div style={{ gridColumn: '1 / -1' }}>
-                        <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--color-secondary)' }}>Your Information</h3>
-                    </div>
-                    <div style={{ gridColumn: '1 / -1' }}>
+                <div style={{ marginBottom: '2rem' }}>
+                    <h3 style={{ fontSize: '1.25rem', marginBottom: '1.5rem', color: 'var(--color-secondary)' }}>Your Information</h3>
+
+                    <div style={{ marginBottom: '1.5rem' }}>
                         <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Full Name</label>
                         <input
                             type="text"
@@ -148,7 +154,8 @@ export default function SchedulePage() {
                             style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1' }}
                         />
                     </div>
-                    <div style={{ minWidth: '0' }}>
+
+                    <div>
                         <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Phone Number</label>
                         <input
                             type="tel"
@@ -160,29 +167,6 @@ export default function SchedulePage() {
                             style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1' }}
                         />
                     </div>
-                    <div style={{ minWidth: '0' }}>
-                        <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Email (Optional)</label>
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="jane@example.com"
-                            value={formData.email}
-                            onChange={handleChange}
-                            style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1' }}
-                        />
-                    </div>
-                </div>
-
-                {/* Best Time to Call */}
-                <div style={{ marginBottom: '2.5rem' }}>
-                    <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Best Time to Call</label>
-                    <input
-                        type="text"
-                        name="preferredTime1"
-                        placeholder="e.g. Morning, After 2pm, etc."
-                        onChange={handleChange}
-                        style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1' }}
-                    />
                 </div>
 
                 <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '2rem' }}>

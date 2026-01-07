@@ -9,30 +9,28 @@ export default function Home() {
   return (
     <main className={styles.main}>
       {/* Hero Section */}
+      {/* Hero Section */}
       <section className={styles.hero}>
-        <div className={styles.videoBackground}>
-          <video autoPlay loop muted playsInline className={styles.video}>
-            <source src="https://videos.pexels.com/video-files/4173258/4173258-uhd_2560_1440_30fps.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <div className={styles.overlay}></div>
-        </div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <h1 className={styles.heroTitle} style={{ marginBottom: '0.5rem', textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>Louisville Lung Care</h1>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 500, color: 'var(--color-text)', marginBottom: '2rem', maxWidth: '600px', marginInline: 'auto' }}>
-            Pulmonary & Respiratory Specialists Serving Louisville, KY
-          </h2>
+          <div className={styles.heroContent}>
+            <h1 className={styles.heroTitle} style={{ marginBottom: '0.5rem', color: 'var(--color-primary)', textShadow: 'none' }}>
+              Louisville Lung Care
+            </h1>
+            <h2 className={styles.heroSubtitle} style={{ fontSize: '1.25rem', fontWeight: 500, color: 'var(--color-text-light)', marginBottom: '2.5rem', maxWidth: '600px', marginInline: 'auto' }}>
+              Pulmonary & Respiratory Specialists Serving Louisville, KY
+            </h2>
 
-          <div className={styles.schedulingOptions}>
-            {/* Primary CTA */}
-            <a href="tel:5028830227" className="btn btn-primary" style={{ fontSize: '1rem', padding: '0.75rem 1.5rem' }}>
-              📞 Call Now (502-883-0227)
-            </a>
+            <div className={styles.schedulingOptions}>
+              {/* Primary CTA */}
+              <a href="tel:5028830227" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
+                Call Now (502-883-0227)
+              </a>
 
-            {/* Secondary CTA */}
-            <Link href="/schedule" className={`btn btn-outline ${styles.pulseButton}`}>
-              Schedule Appointment
-            </Link>
+              {/* Secondary CTA */}
+              <Link href="/schedule" className="btn btn-outline" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
+                Request an Appointment
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -44,25 +42,25 @@ export default function Home() {
           <p className={styles.doctorsIntro}>Our practice consists of three highly experienced pulmonologists dedicated to your care.</p>
           <div className={styles.grid}>
             <ProviderCard
-              name="Dr. James Wilson"
-              role="Senior Pulmonologist"
-              bio="Dr. Wilson has over 20 years of experience treating complex respiratory conditions. He specialized in COPD management and is dedicated to helping patients maintain an active lifestyle."
-              specialties="COPD and Asthma management"
-              education="U of L School of Medicine"
+              name="Dr. Moutaz Al Nabhan"
+              role="Pulmonologist"
+              bio="Dr. Moutaz Al Nabhan is a pulmonologist in Louisville, Kentucky. He has been in practice for more than 20 years and has expertise in treating sleep issues, pneumonia, and asthma."
+              specialties="Pulmonology, Critical Care, Interventional Pulmonology"
+              education="University of Aleppo Faculty of Medicine"
             />
             <ProviderCard
               name="Dr. Sajjad Jameel"
               role="Pulmonologist & Internal Medicine"
-              bio="Dr. Jameel has 26 years of experience in Internal Medicine and Pulmonology. He is dedicated to providing comprehensive pulmonary care to the Louisville community."
-              specialties="Long COVID, Esophageal Varices, General Pulmonary"
-              education="Allama Iqbal Medical College"
+              bio="Dr. Jameel is a specialist in Pulmonary Disease, Critical Care Medicine, and Sleep Medicine with over 25 years of experience. He is fluent in English, Hindi, Punjabi, Spanish, and Urdu."
+              specialties="Pulmonary Disease, Critical Care Medicine, Internal Medicine, Sleep Medicine"
+              education="University of The Punjab / Fatima Jinnah Medical College for Women"
             />
             <ProviderCard
               name="Dr. Ehab Haj Ali"
-              role="Pulmonologist & Internal Medicine"
-              bio="Dr. Haj Ali brings 20 years of experience. His areas of expertise include Sleep Apnea, Asthma treatment, and Ulcerative colitis."
-              specialties="Sleep Apnea, Asthma, Chronic Heart Diseases"
-              education="University of Aleppo"
+              role="Pulmonologist, Internal Medicine & Critical Care"
+              bio="Dr. Haj Ali is a specialist in Pulmonary, Critical Care, and Internal Medicine with over 15 years of experience. He treats COPD, asthma, pulmonary fibrosis, and performs bronchoscopy."
+              specialties="Pulmonology, Critical Care Medicine, Internal Medicine"
+              education="University of Aleppo (2006) / University of Louisville (Fellowship 2015)"
             />
           </div>
         </div>
@@ -91,6 +89,45 @@ export default function Home() {
             ].map((service, i) => (
               <ServiceCard key={i} title={service.title} desc={service.desc} />
             ))}
+          </div>
+        </div>
+      </section>
+      {/* Visit Us / Map Section */}
+      <section style={{ padding: '6rem 0', background: 'var(--color-background)' }}>
+        <div className="container">
+          <h2 className={styles.sectionTitle}>Visit Us</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem', maxWidth: '1000px', margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+              <p style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}><strong>Louisville Lung Care</strong></p>
+              <p style={{ fontSize: '1.1rem', color: 'var(--color-text-light)' }}>1015 Dupont Rd, Louisville, KY 40207</p>
+              <p style={{ fontSize: '1.1rem', color: 'var(--color-text-light)', marginTop: '0.5rem' }}>Mon - Fri: 8:30 AM - 4:30 PM</p>
+            </div>
+
+            <div style={{ height: '450px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', position: 'relative', boxShadow: 'var(--shadow-md)' }}>
+              <iframe
+                width="100%"
+                height="100%"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=1015%20Dupont%20Rd%2C%20Louisville%2C%20KY%2040207&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight={0}
+                marginWidth={0}
+                style={{ border: 0 }}
+                title="Google Map Location"
+              ></iframe>
+              <div style={{ position: 'absolute', bottom: '30px', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
+                <a
+                  href="https://www.google.com/maps/dir//1015+Dupont+Rd,+Louisville,+KY+40207"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                  style={{ boxShadow: '0 4px 6px rgba(0,0,0,0.1)', padding: '0.75rem 1.5rem', fontSize: '1rem' }}
+                >
+                  📍 Get Directions
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

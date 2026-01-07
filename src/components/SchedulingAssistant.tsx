@@ -19,8 +19,12 @@ export default function SchedulingAssistant() {
                 <p style={{ fontSize: '1.1rem', color: 'var(--color-text)', textAlign: 'center', marginBottom: '1rem' }}>
                     Submit a request online and our team will call you to schedule your appointment.
                 </p>
-                <button onClick={() => handleSelection('request')} className={styles.assistantBtn} style={{ maxWidth: '300px', background: 'var(--color-primary)', color: 'white', borderColor: 'var(--color-primary)' }}>
-                    📅 Request Appointment
+                <button
+                    onClick={() => handleSelection('request')}
+                    className="btn btn-primary"
+                    style={{ padding: '0.75rem 1.5rem', fontSize: '1rem', width: 'auto' }}
+                >
+                    Request Appointment
                 </button>
             </div>
         </div>
