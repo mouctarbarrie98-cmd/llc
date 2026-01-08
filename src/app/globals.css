@@ -125,43 +125,49 @@ button {
   padding: 0 var(--spacing-md);
 }
 
+/* Premium Button Styles */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-md);
+  padding: 1rem 2.5rem;
+  /* Spacious padding */
+  border-radius: 50px;
+  /* Pill shape for modern feel */
   font-weight: 600;
-  transition: all var(--transition-normal);
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .btn:active {
-  transform: translateY(1px);
+  transform: scale(0.98);
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: white;
-  box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.3);
+  border: none;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.4);
+  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.4);
 }
 
 .btn-outline {
-  background-color: transparent;
-  border: 2px solid var(--color-primary);
-  color: var(--color-primary);
+  background-color: white;
+  border: 2px solid #E2E8F0;
+  color: var(--color-secondary);
 }
 
 .btn-outline:hover {
-  background-color: var(--color-primary);
-  color: white;
-  box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.3);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: #F8FAFC;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }

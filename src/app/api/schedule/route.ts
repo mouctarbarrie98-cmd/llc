@@ -9,12 +9,15 @@ export async function POST(request: Request) {
         const body = await request.json();
 
         // Simple Validation
-        if (!body.patientName || !body.phone || !body.visitReason) {
+        if (!body.patientName || !body.phone) {
             return NextResponse.json(
                 { error: 'Missing required fields' },
                 { status: 400 }
             );
         }
+
+        // Construct reason including provider preference
+        const reasonText = (body.provider ? `[Provider: ${body.provider}] ` : '') + (body.visitReason || 'Appointment Request');
 
         // Save to Database
         const callRequest = await prisma.callRequest.create({
@@ -22,7 +25,7 @@ export async function POST(request: Request) {
                 fullName: body.patientName,
                 phone: body.phone,
                 email: body.email || null,
-                reason: body.visitReason,
+                reason: reasonText,
                 preferredTime: body.preferredTime1 || null,
                 isEmergency: body.isEmergencyChecked || false
             }

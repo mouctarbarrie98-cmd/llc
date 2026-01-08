@@ -1,13 +1,16 @@
 /* Hero Section */
 .hero {
-  padding: 8rem 0 6rem;
-  /* Clean padding */
+  padding: 12rem 0 10rem;
   position: relative;
   z-index: 0;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  /* Vertical Center */
+  min-height: 80vh;
+  background-color: aliceblue;
 }
 
-/* Background Image with Overlay */
+/* Background Image with Subtle Gradient Overlay */
 .hero::before {
   content: "";
   position: absolute;
@@ -15,48 +18,51 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg');
+  /* Reduced opacity to show image clearly while maintaining readability */
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.75) 0%,
+      rgba(240, 249, 255, 0.6) 100%),
+    url('https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg');
   background-size: cover;
   background-position: center;
-  opacity: 0.15;
-  /* Subtle texture to keep text readable */
   z-index: -1;
-  pointer-events: none;
 }
-
-/* Removed Video Background Classes */
 
 .heroContent {
   max-width: 800px;
   margin: 0 auto;
+  text-align: center;
   position: relative;
   z-index: 1;
 }
 
 .heroTitle {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   font-weight: 800;
+  letter-spacing: -0.03em;
   margin-bottom: 1.5rem;
-  color: var(--color-secondary);
-  /* Dark text for light background */
+  color: #1e293b;
   line-height: 1.1;
+  background: linear-gradient(to right, #0f172a, #334155);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .heroSubtitle {
-  font-size: 1.25rem;
-  color: var(--color-text-light);
-  /* Dark gray text */
-  margin-bottom: 2.5rem;
-  max-width: 700px;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: #475569;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  max-width: 650px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.6;
 }
 
 .schedulingOptions {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 

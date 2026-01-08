@@ -13,23 +13,35 @@ export default function Home() {
       <section className={styles.hero}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle} style={{ marginBottom: '0.5rem', color: 'var(--color-primary)', textShadow: 'none' }}>
+
+
+            <h1 className={styles.heroTitle}>
               Louisville Lung Care
             </h1>
-            <h2 className={styles.heroSubtitle} style={{ fontSize: '1.25rem', fontWeight: 500, color: 'var(--color-text-light)', marginBottom: '2.5rem', maxWidth: '600px', marginInline: 'auto' }}>
-              Pulmonary & Respiratory Specialists Serving Louisville, KY
+            <h2 className={styles.heroSubtitle}>
+              Expert respiratory care from board-certified pulmonologists. We specialize in treating complex lung conditions with compassion and precision.
             </h2>
 
             <div className={styles.schedulingOptions}>
               {/* Primary CTA */}
-              <a href="tel:5028830227" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
+              <a href="tel:5028830227" className="btn btn-primary">
                 Call Now (502-883-0227)
               </a>
 
               {/* Secondary CTA */}
-              <Link href="/schedule" className="btn btn-outline" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
+              <Link href="/schedule" className="btn btn-outline">
                 Request an Appointment
               </Link>
+            </div>
+
+            {/* Micro-trust indicators */}
+            <div style={{ marginTop: '3rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#64748B', fontSize: '0.9rem', fontWeight: 500 }}>
+                <span style={{ color: '#0284C7', fontSize: '1.2rem' }}>✓</span> Accepting New Patients
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#64748B', fontSize: '0.9rem', fontWeight: 500 }}>
+                <span style={{ color: '#0284C7', fontSize: '1.2rem' }}>✓</span> Major Insurance Accepted
+              </div>
             </div>
           </div>
         </div>
@@ -39,7 +51,9 @@ export default function Home() {
       <section className={styles.doctors}>
         <div className="container">
           <h2 className={styles.sectionTitle}>Meet Our Providers</h2>
-          <p className={styles.doctorsIntro}>Our practice consists of three highly experienced pulmonologists dedicated to your care.</p>
+          <p className={styles.doctorsIntro}>
+            Serving Louisville for over 25 years, our practice consists of three highly experienced pulmonologists dedicated to your care.
+          </p>
           <div className={styles.grid}>
             <ProviderCard
               name="Dr. Moutaz Al Nabhan"
