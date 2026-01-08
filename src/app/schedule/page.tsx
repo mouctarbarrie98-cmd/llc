@@ -1,13 +1,12 @@
 "use client";
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function SchedulePage() {
+function ScheduleForm() {
     const searchParams = useSearchParams();
     const typeParam = searchParams.get('type');
 
-    const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
         isEmergencyChecked: false,
         visitType: '',
@@ -108,7 +107,6 @@ export default function SchedulePage() {
             <form onSubmit={handleSubmit} style={{ background: 'var(--color-surface)', padding: '2rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)' }}>
 
                 {/* Step 1: Guardrails & Type */}
-                {/* Step 1: Guardrails & Type */}
                 <div style={{ marginBottom: '2rem' }}>
                     <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer', padding: '1rem', background: '#f8fafc', borderRadius: 'var(--radius-md)' }}>
                         <input
@@ -183,5 +181,17 @@ export default function SchedulePage() {
                 </div>
             </form>
         </main>
+    );
+}
+
+export default function SchedulePage() {
+    return (
+        <Suspense fallback={
+            <main className="container" style={{ padding: '4rem 1.5rem', maxWidth: '800px', textAlign: 'center' }}>
+                <p>Loading schedule form...</p>
+            </main>
+        }>
+            <ScheduleForm />
+        </Suspense>
     );
 }
